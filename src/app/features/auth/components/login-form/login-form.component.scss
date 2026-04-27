@@ -1,0 +1,21 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Form fields have their own padding from Material */
+}
+
+.full-width {
+  width: 100%;
+}
+
+.submit-button {
+  margin-top: 16px;
+  width: 100%;
+  display: block;
+
+  ::ng-deep button {
+    width: 100%;
+    padding: 24px 0; /* Make it a bit more prominent */
+    font-size: 1.1rem;
+  }
+}
