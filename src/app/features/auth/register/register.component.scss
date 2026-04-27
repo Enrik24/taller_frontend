@@ -1,0 +1,57 @@
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  padding: 16px;
+}
+
+.register-card {
+  max-width: 450px; /* little wider for register */
+  width: 100%;
+  padding: 40px 32px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+
+  .card-header {
+    text-align: center;
+    h1 {
+      margin: 0 0 12px 0;
+      color: #1e3c72;
+      font-size: 26px;
+      font-weight: 800;
+    }
+    h2 {
+      margin: 0;
+      color: #555;
+      font-size: 18px;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+  }
+
+  .card-footer {
+    text-align: center;
+    margin-top: 20px;
+    p {
+      margin: 0;
+      color: #666;
+      font-size: 15px;
+    }
+    a {
+      color: #1e3c72;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      &:hover {
+        color: #2a5298;
+        text-decoration: underline;
+      }
+    }
+  }
+}

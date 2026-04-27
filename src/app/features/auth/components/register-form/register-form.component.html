@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="auth-form">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Nombre Completo</mat-label>
+    <input matInput formControlName="nombre" type="text" autocomplete="name">
+    <mat-error *ngIf="nombreCtrl.invalid">{{ getNombreError() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email" autocomplete="email">
+    <mat-error *ngIf="emailCtrl.invalid">{{ getEmailError() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Contraseña</mat-label>
+    <input matInput formControlName="password" [type]="hidePassword() ? 'password' : 'text'" autocomplete="new-password">
+    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button" tabindex="-1">
+      <mat-icon>{{hidePassword() ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="passwordCtrl.invalid">{{ getPasswordError() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Confirmar Contraseña</mat-label>
+    <input matInput formControlName="confirmarPassword" [type]="hideConfirmPassword() ? 'password' : 'text'" autocomplete="new-password">
+    <button mat-icon-button matSuffix (click)="toggleConfirmPasswordVisibility()" type="button" tabindex="-1">
+      <mat-icon>{{hideConfirmPassword() ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="confirmarPasswordCtrl.invalid || form.hasError('passwordMismatch')">{{ getConfirmarPasswordError() }}</mat-error>
+  </mat-form-field>
+
+  <app-button 
+    label="Registrarse" 
+    type="submit" 
+    variant="primary" 
+    [disabled]="form.invalid || loading()" 
+    [loading]="loading()"
+    class="submit-button">
+  </app-button>
+</form>

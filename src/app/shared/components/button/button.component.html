@@ -1,0 +1,40 @@
+@switch (variant) {
+  @case ('basic') {
+    <button mat-button [type]="type" [disabled]="disabled || loading" [class.loading]="loading">
+      <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+    </button>
+  }
+  @case ('outlined') {
+    <button mat-stroked-button [type]="type" [disabled]="disabled || loading" [class.loading]="loading">
+      <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+    </button>
+  }
+  @case ('warn') {
+    <button mat-flat-button color="warn" [type]="type" [disabled]="disabled || loading" [class.loading]="loading">
+      <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+    </button>
+  }
+  @case ('secondary') {
+    <button mat-flat-button color="accent" [type]="type" [disabled]="disabled || loading" [class.loading]="loading">
+      <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+    </button>
+  }
+  @default {
+    <button mat-flat-button color="primary" [type]="type" [disabled]="disabled || loading" [class.loading]="loading">
+      <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+    </button>
+  }
+}
+
+<ng-template #buttonContent>
+  <div class="button-content">
+    @if (loading) {
+      <mat-spinner diameter="20" strokeWidth="3" class="button-spinner"></mat-spinner>
+    } @else {
+      @if (icon) {
+        <mat-icon>{{ icon }}</mat-icon>
+      }
+      <span class="label">{{ label }}</span>
+    }
+  </div>
+</ng-template>

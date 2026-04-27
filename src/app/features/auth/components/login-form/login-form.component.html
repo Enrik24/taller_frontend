@@ -1,0 +1,25 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="auth-form">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email" autocomplete="email">
+    <mat-error *ngIf="emailCtrl.invalid">{{ getEmailError() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Contraseña</mat-label>
+    <input matInput formControlName="password" [type]="hidePassword() ? 'password' : 'text'" autocomplete="current-password">
+    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword()">
+      <mat-icon>{{hidePassword() ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="passwordCtrl.invalid">{{ getPasswordError() }}</mat-error>
+  </mat-form-field>
+
+  <app-button 
+    label="Iniciar Sesión" 
+    type="submit" 
+    variant="primary" 
+    [disabled]="form.invalid || loading()" 
+    [loading]="loading()"
+    class="submit-button">
+  </app-button>
+</form>

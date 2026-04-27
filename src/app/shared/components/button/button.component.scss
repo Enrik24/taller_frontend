@@ -1,0 +1,14 @@
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  .label {
+    min-width: max-content;
+  }
+}
+
+.button-spinner {
+  margin: 0 4px;
+}

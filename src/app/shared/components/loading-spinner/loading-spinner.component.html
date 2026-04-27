@@ -1,0 +1,10 @@
+<div class="spinner-container fade-in">
+  <mat-spinner 
+    [diameter]="diameter" 
+    [strokeWidth]="strokeWidth"
+    color="primary">
+  </mat-spinner>
+  @if (message) {
+    <p class="spinner-message">{{ message }}</p>
+  }
+</div>
