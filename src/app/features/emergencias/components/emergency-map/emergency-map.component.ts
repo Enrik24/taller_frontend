@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, signal, AfterViewInit, NgZone, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletModule } from '@bluehalo/ngx-leaflet';
 import * as L from 'leaflet';
 
 @Component({
